@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  streamio-server:
+    image: sleeyax/stremio-streaming-server
+    container_name: stremio-server
+    ports:
+      - 11470:11470
+    volumes:
+      - ./data:/root/.stremio-server
