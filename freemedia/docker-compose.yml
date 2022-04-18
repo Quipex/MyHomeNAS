@@ -9,8 +9,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    env_file:
-      - .env
     volumes:
       - ~/apps/freemedia/config/radarr:/config
       - ~/downloads/movies:/movies
@@ -27,12 +25,10 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    env_file:
-      - .env
     volumes:
       - ~/apps/freemedia/config/sonarr:/config
-      - ~/downloads/tv:/tv #optional
-      - ~/downloads:/downloads #optional
+      - ~/downloads/tv:/tv
+      - ~/downloads:/downloads
     ports:
       - ${SONARR_PORT}:8989
     restart: unless-stopped
@@ -44,8 +40,6 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-    env_file:
-      - .env
     volumes:
       - ~/apps/freemedia/config/prowlarr:/config
     ports:
@@ -60,8 +54,6 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - WEBUI_PORT=8080
-    env_file:
-      - .env
     volumes:
       - ~/apps/freemedia/config/qbittorrent:/config
       - ~/downloads:/downloads
